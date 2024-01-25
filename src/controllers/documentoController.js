@@ -39,3 +39,17 @@ export const getAvatarPerfil = async (req, res) => {
     console.log();(error, res);
   }
 };
+export const getLibroImg = async (req, res) => {
+  const idArchivo = req.params.id;
+  try {
+    const archivo = join(__dirname, `./public/libros/${idArchivo}`);
+    if (existsSync(archivo)) {
+      return res.sendFile(archivo);
+    } else {
+      const errorMessage = "Imagen no existe";
+      throw createHttpError(404, errorMessage);
+    }
+  } catch (error) {
+    console.log(error, res);
+  }
+};

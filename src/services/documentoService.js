@@ -26,9 +26,9 @@ export const optimizarImagen = async (archivo, nombreArchivo) => {
 export const optimizarImagenLibro = async (archivo, nombreArchivo) => {
   return await sharp(archivo)
     .resize(500, 700)
-    .toFormat("png")
+    .toFormat("webp")
     .toFile(
-      join(__dirname, `/public/libros/${nombreArchivo.split(".")[0]}.png`)
+      join(__dirname, `/public/libros/${nombreArchivo.split(".")[0]}.webp`)
     );
 };
 
